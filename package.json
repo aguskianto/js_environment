@@ -10,7 +10,10 @@
     "lint:watch": "npm run lint -- --watch",
     "security-check": "npm audit --audit-level high",
     "localtunnel": "lt --port 3000 --subdomain agusk",
-    "share": "npm-run-all --parallel localtunnel open:src"
+    "share": "npm-run-all --parallel localtunnel open:src",
+    "test":
+      "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Agus Kianto",
   "license": "MIT",
@@ -32,6 +35,7 @@
     "express": "^4.17.1",
     "jsdom": "^15.1.1",
     "localtunnel": "^1.9.2",
+    "mocha": "^6.1.4",
     "npm-run-all": "^4.1.5",
     "numeral": "^2.0.6",
     "open": "^6.3.0",
