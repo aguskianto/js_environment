@@ -1,13 +1,38 @@
+<script src="https://cdn.polyfill.io/v2/polyfill.js?features=fetch"></script>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <% if (htmlWebpackPlugin.options.trackJSToken) { %>
+    <!-- BEGIN TRACKJS -->
+    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+      window.TrackJS = { token: '<%=htmlWebpackPlugin.options.trackJSToken%>' };
+    </script>
+    <!-- END TRACKJS -->
+    <% } %>
+      <meta charset="UTF-8">
 </head>
 
 <body>
-  <h1>Hello World!</h1>
-  <script src="bundle.js"></script>
+  <!--<h1>Hello World!</h1>-->
+  <h1>Users</h1>
+
+  <table>
+    <thead>
+      <th>&nbsp;</th>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </thead>
+    <tbody id="users">
+    </tbody>
+  </table>
+
+  <% if (!htmlWebpackPlugin.options.trackJSToken) { %>
+    <script src="bundle.js"></script>
+    <% } %>
 </body>
 
 </html>

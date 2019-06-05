@@ -8,11 +8,20 @@ describe("Our first test", () => {
 });
 
 describe("index.html", () => {
-  it("should say hello", () => {
+  // it("should say hello", () => {
+  //   JSDOM.fromFile("./src/index.html").then(dom => {
+  //     const window = dom.window;
+  //     const h1 = window.document.getElementsByTagName("h1")[0];
+  //     expect(h1.innerHTML).to.equal("Hello World!");
+  //     window.close();
+  //   });
+  // });
+
+  it("should have h1 that says Users", () => {
     JSDOM.fromFile("./src/index.html").then(dom => {
       const window = dom.window;
       const h1 = window.document.getElementsByTagName("h1")[0];
-      expect(h1.innerHTML).to.equal("Hello World!");
+      expect(h1.innerHTML).to.equal("Users");
       window.close();
     });
   });
